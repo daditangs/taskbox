@@ -7,7 +7,6 @@ import { TaskComponent } from './components/task.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
   ],
   imports: [
     BrowserModule
