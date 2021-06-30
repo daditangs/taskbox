@@ -21,12 +21,26 @@ export class AppComponent {
   ];
 
   onPin(id) {
-    console.log('id: ', id);
-    this.tasks = this.tasks.map(task => ({...task, state: id === task.id ? 'TASK_PINNED' : task.state}));
+    this.tasks = this.tasks.map(task => {
+      if (task.id === id && task.state === 'TASK_PINNED') {
+        return { ...task, state: 'TASK_INBOX'}
+      }
+      if (task.id === id && task.state === 'TASK_INBOX') {
+        return { ...task, state: 'TASK_PINNED'}
+      }
+      return { ...task }
+    });
   }
 
-  onArchiveTask(id) {
-    console.log('id: ', id);
-    this.tasks = this.tasks.map(task => ({...task, state: id === task.id ? 'TASK_ARCHIVED' : task.state}));
+  onArchive(id) {
+    this.tasks = this.tasks.map(task => {
+      if (task.id === id && (task.state === 'TASK_ARCHIVED')) {
+        return { ...task, state: 'TASK_INBOX'}
+      }
+      if (task.id === id && task.state === 'TASK_PINNED') {
+        return { ...task, state: 'TASK_ARCHIVED'}
+      }
+      return { ...task }
+    });
   }
 }
