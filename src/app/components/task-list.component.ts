@@ -6,6 +6,7 @@ import { Task } from './models/task.model';
   selector: 'app-task-list',
   template: `
   <div class="list-items">
+      <div *ngIf="!loading">
        <app-task
          *ngFor="let task of tasksInOrder"
          [task]="task"
@@ -13,6 +14,7 @@ import { Task } from './models/task.model';
          (onPinTask)="onPinTask.emit($event)"
        >
        </app-task>
+      </div>
        <div *ngIf="tasksInOrder.length === 0 && !loading" class="wrapper-message">
          <span class="icon-check"></span>
          <div class="title-message">You have no tasks</div>
