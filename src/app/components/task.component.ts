@@ -4,13 +4,14 @@ import { Task } from '../models/task.model';
 @Component({
   selector: 'app-task',
   template: `
-    <div class="list-item {{ task?.state}}">
+    <div class="list-item {{ task?.state}}" style="background: 'blue';">
         <label class="checkbox">
             <input
                 type="checkbox"
                 [defaultChecked]="task?.state === 'TASK_ARCHIVED'"
                 disabled="true"
                 name="checked"
+                
             />
             <span class="checkbox-custom" (click)="onArchive(task.id)"></span>
         </label>
