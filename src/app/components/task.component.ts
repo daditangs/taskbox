@@ -11,7 +11,7 @@ import { Task } from '../models/task.model';
                 [defaultChecked]="task?.state === 'TASK_ARCHIVED'"
                 disabled="true"
                 name="checked"
-                style="{background: red;}"
+                style="background: red;"
             />
             <span class="checkbox-custom" (click)="onArchive(task.id)"></span>
         </label>
